@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="记录我们每一个值得纪念的日子">
+  <title>我们的纪念册</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gate" id="gate" aria-hidden="false">
+    <div class="gate-card">
+      <span class="gate-icon"><i data-lucide="lock-keyhole"></i></span>
+      <h1 id="gateTitle">我们的纪念册</h1>
+      <p id="gateHint">输入密码，进入我们的纪念册</p>
+      <form class="gate-form" id="gateForm">
+        <input id="gateInput" type="password" placeholder="密码" autocomplete="current-password" aria-label="密码">
+        <button class="btn btn-dark" type="submit">进入</button>
+      </form>
+      <p class="gate-error" id="gateError" hidden aria-live="polite">密码不对，再试一次</p>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="回到顶部">
+      <span class="brand-mark"><i data-lucide="heart"></i></span>
+      <span class="brand-name" id="brandName">我们的纪念册</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="#stats"><i data-lucide="calendar-heart"></i><span>纪念日</span></a>
+      <a href="#story"><i data-lucide="book-heart"></i><span>时光</span></a>
+      <a href="#gallery"><i data-lucide="images"></i><span>相册</span></a>
+      <a href="#letters"><i data-lucide="messages-square"></i><span>留言</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero-bg" src="assets/pictures/photo-06.jpg" alt="">
+      <div class="hero-veil"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">2026 · 我们</p>
+        <h1 id="heroTitle">我们的纪念册</h1>
+        <p class="hero-sub" id="heroSubtitle">把每一次心动，都好好收藏</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="#gallery"><i data-lucide="images"></i>看看我们的照片</a>
+          <a class="btn btn-ghost" href="#story"><i data-lucide="book-heart"></i>我们的时光</a>
+        </div>
+      </div>
+      <a class="hero-scroll" href="#stats" aria-label="向下滚动">
+        <i data-lucide="chevron-down"></i>
+      </a>
+    </section>
+
+    <section class="stats" id="stats" aria-label="纪念日统计">
+      <article class="stat">
+        <span class="stat-value" id="daysTogether">0</span>
+        <span class="stat-label">在一起的天数</span>
+      </article>
+      <article class="stat">
+        <span class="stat-value" id="anniversaryDays">0</span>
+        <span class="stat-label">距离纪念日还有</span>
+      </article>
+      <article class="stat">
+        <span class="stat-value" id="photoCount">0</span>
+        <span class="stat-label">张珍藏照片</span>
+      </article>
+      <article class="stat">
+        <span class="stat-value stat-date" id="anniversaryText">8月4日</span>
+        <span class="stat-label">我们的纪念日</span>
+      </article>
+    </section>
+
+    <section class="today section" id="today">
+      <div class="section-inner today-grid">
+        <div class="today-photo reveal">
+          <img id="todayPhoto" src="" alt="">
+          <span class="today-date" id="todayDate"></span>
+        </div>
+        <div class="today-copy reveal">
+          <p class="eyebrow">Today's Memory</p>
+          <h2>今日记忆</h2>
+          <p class="today-text">今天也想让你看看这一张照片。</p>
+          <p class="today-next" id="todayNext"></p>
+          <a class="btn btn-dark" href="#gallery"><i data-lucide="arrow-right"></i>翻看全部照片</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section story" id="story">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <p class="eyebrow">Our Story</p>
+          <h2>我们的时光</h2>
+          <p class="section-sub">重要的小日子，都值得慢慢写下来。</p>
+        </header>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <p class="eyebrow">Our Album</p>
+          <h2>我们的相册</h2>
+          <p class="section-sub">2026 年的夏天，从下午到傍晚。</p>
+        </header>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="section letters" id="letters">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <p class="eyebrow">Notes For Us</p>
+          <h2>写给彼此</h2>
+          <p class="section-sub">有些话，想放在这里慢慢说。</p>
+        </header>
+        <div class="letters-grid" id="lettersGrid"></div>
+        <div class="board reveal">
+          <div class="board-form">
+            <label for="noteInput">今天想说的话</label>
+            <textarea id="noteInput" maxlength="120" rows="3" placeholder="写一句悄悄话"></textarea>
+            <button class="btn btn-light" id="noteSubmit" type="button"><i data-lucide="send"></i>存下来</button>
+          </div>
+          <ul class="board-list" id="noteList"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span class="footer-heart"><i data-lucide="heart"></i></span>
+    <p>把平凡的日子，过成值得纪念的日子</p>
+    <span class="footer-year">© 2026 我们的纪念册</span>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-btn lightbox-close" id="lightboxClose" type="button" aria-label="关闭">
+      <i data-lucide="x"></i>
+    </button>
+    <button class="lightbox-btn lightbox-prev" id="lightboxPrev" type="button" aria-label="上一张">
+      <i data-lucide="chevron-left"></i>
+    </button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox-btn lightbox-next" id="lightboxNext" type="button" aria-label="下一张">
+      <i data-lucide="chevron-right"></i>
+    </button>
+  </div>
+
+  <script src="assets/lucide.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
