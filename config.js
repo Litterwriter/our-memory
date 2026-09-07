@@ -11,10 +11,10 @@ window.LOVE_CONFIG = {
     fallbackHash: "578980c"
   },
 
-  startDate: "2026-08-04",
+  startDate: "2023-11-05",
   anniversary: {
-    month: 8,
-    day: 4
+    month: 11,
+    day: 5
   },
 
   todayIntro: "今天也想让你看看这一张照片。",
