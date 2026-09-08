@@ -140,7 +140,7 @@
   }
 
   const today = startOfDay(new Date());
-  const anniversary = cfg.anniversary || { month: 8, day: 4 };
+  const anniversary = cfg.anniversary || { month: 11, day: 5 };
 
   if (cfg.startDate) {
     const start = parseLocalDate(cfg.startDate);
